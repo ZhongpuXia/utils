@@ -26,7 +26,6 @@ def load(filename):
                 continue
             line_seg = line.split(', ')
             path_point_list.append([float(s) for s in line_seg])
-    print "start point: {}".format(start_point)
     return start_point, end_point, path_point_list
 
 def plot(path_point_list):
