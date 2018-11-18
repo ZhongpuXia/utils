@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8)
 project(UTURN)
 
+#SET(CMAKE_C_COMPILER “/usr/bin/gcc”)
+#SET(CMAKE_CXX_COMPILER “/usr/bin/g++”)
 add_compile_options(-std=c++11)
 message(STATUS "Project directory: ${PROJECT_SOURCE_DIR}")
 message(STATUS "please make install library: glog, gtest, gflags")
@@ -16,19 +18,13 @@ set(SOURCE_FILE_LIST
 message(STATUS "files: ${SOURCE_FILE_LIST}")
 
 add_library(${PROJECT_NAME} SHARED ${SOURCE_FILE_LIST})
-add_executable(main main.cpp)
+target_link_libraries(${PROJECT_NAME}
+        glog gtest gflags pthread)
+
+add_executable(main main.cpp ${SOURCE_FILE_LIST})
 target_link_libraries(main
         ${PROJECT_NAME}
-        glog gflags )
-
-
-    #add_executable(polynomial_test unittest/polynomial_test.cpp)
-    #target_link_libraries(polynomial_test
-    #        ${PROJECT_NAME}
-    #        gtest glog gtest
-    #        pthread
-    #        )
-
+        glog gtest gflags pthread)
 
 FILE(GLOB_RECURSE TEST_FILES "unittest/*_test.cpp")
 message(STATUS "test files: ${TEST_FILES}")
