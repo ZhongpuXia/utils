@@ -1,0 +1,13 @@
+description:
+    intepolate a curve between a start point (x0, y0, heading0) and an end point (x1, y1, heading1)
+
+requirement:
+    - cmake
+    - glog
+    - gtest
+    - gflags
+
+
+1) build: bash build.sh build
+2) unittst: bash build.sh unittest
+3) plot: bash build.sh run
