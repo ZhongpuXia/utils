@@ -14,7 +14,7 @@ SplineSegment SplineSolver::solve(const PathPoint2D& start, const PathPoint2D& e
     double y1 = end.y();
     double theta1 = end.theta();
 
-    double length = 2.5 * std::hypot(x1 - x0, y1 - y0);
+    double length = 2.2; //1.5; //1 * std::hypot(x1 - x0, y1 - y0);
     double s0 = sin(theta0) * length;
     double c0 = cos(theta0) * length;
     double s1 = sin(theta1) * length;
